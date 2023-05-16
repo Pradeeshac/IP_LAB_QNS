@@ -1,0 +1,41 @@
+INDEX.HTML:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Character Occurrences</title>
+  <script src="script.js"></script>
+</head>
+<body>
+  <h1>Character Occurrences</h1>
+  <form id="searchForm" onsubmit="return countOccurrences()">
+    <label for="text">Text:</label>
+    <textarea id="text" rows="4" cols="50" required></textarea>
+
+    <label for="searchChar">Search Character:</label>
+    <input type="text" id="searchChar" required>
+
+    <button type="submit">Search</button>
+  </form>
+  <p id="result"></p>
+</body>
+</html>
+
+
+SCRIPT.JS
+
+function countOccurrences() {
+  var text = document.getElementById("text").value;
+  var searchChar = document.getElementById("searchChar").value;
+  var occurrences = 0;
+
+  for (var i = 0; i < text.length; i++) {
+    if (text.charAt(i) === searchChar) {
+      occurrences++;
+    }
+  }
+
+  document.getElementById("result").innerText = "Number of occurrences: " + occurrences;
+
+  return false;
+}

@@ -1,0 +1,37 @@
+INDEX.HTML:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Applying Style Rules</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Heading 1</h1>
+
+  <ul>
+    <li>List Item 1</li>
+    <li>List Item 2</li>
+  </ul>
+</body>
+</html>
+
+
+STYLE.CSS:
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+li {
+  font-weight: bold;
+}
+
+/* Subset 2 */
+h1 {
+  text-decoration: underline;
+}
+
+ul {
+  margin-left: 20px;
+}

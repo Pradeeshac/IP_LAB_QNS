@@ -1,0 +1,27 @@
+<head>
+  <title>Hotel Menu</title>
+  <style>
+    /* Embedded style sheet starts here */
+    .non-veg {
+      color: red;
+      font-size: smaller;
+      font-weight: bold;
+    }
+
+    .veg {
+      color: green;
+      font-size: larger;
+    }
+    /* Embedded style sheet ends here */
+  </style>
+</head>
+<body>
+  <h1>Hotel Menu</h1>
+
+  <ul>
+    <li class="non-veg">Chicken Biryani</li>
+    <li class="non-veg">Butter Chicken</li>
+    <li class="veg">Paneer Tikka</li>
+    <li class="veg">Vegetable Biryani</li>
+  </ul>
+</body>
