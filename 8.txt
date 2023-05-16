@@ -1,0 +1,95 @@
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class BirthdayServlet extends HttpServlet {
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html");
+        
+        // Get the current date
+        java.util.Date currentDate = new java.util.Date();
+        
+        // Create a PrintWriter to write the HTML response
+        PrintWriter out = response.getWriter();
+        
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<title>Birthday Message</title>");
+        out.println("</head>");
+        out.println("<body>");
+        out.println("<h1>Wish you a Happy Birthday!</h1>");
+        out.println("<p>Today is " + currentDate + "</p>");
+        out.println("</body>");
+        out.println("</html>");
+    }
+}
+
+
+
+--------------------------------------------------------------------------------------------------
+
+INDEX.HTML:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Report</title>
+</head>
+<body>
+    <h1>Weather Report</h1>
+    <form action="WeatherServlet" method="POST">
+        <label for="city">Enter City:</label>
+        <input type="text" id="city" name="city" required>
+        <br>
+        <input type="submit" value="Get Weather Report">
+    </form>
+</body>
+</html>
+
+
+
+WEATHERSERVLET:
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class WeatherServlet extends HttpServlet {
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // Get the city name entered by the user
+        String city = request.getParameter("city");
+        
+        // Simulate retrieving the weather report for the city
+        String weatherReport = getWeatherReport(city);
+        
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<title>Weather Report</title>");
+        out.println("</head>");
+        out.println("<body>");
+        out.println("<h1>Weather Report for " + city + "</h1>");
+        out.println("<p>" + weatherReport + "</p>");
+        out.println("</body>");
+        out.println("</html>");
+    }
+    
+    // Simulated method to retrieve the weather report for a city
+    private String getWeatherReport(String city) {
+        // You would typically make an API call to get the actual weather report
+        // For this example, let's just return a static string
+        return "The weather in " + city + " is sunny.";
+    }
+}
